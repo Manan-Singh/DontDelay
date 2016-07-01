@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+	<title>Don't Delay</title>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- STYLESHEET -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- BOOTSTRAP -->
+
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+<body>
+	<header>
+		<div>
+			<div class="jumbotron">
+				<div class="container text-center">
+					<h1 id="page-title">Don't Delay</h1>
+				</div>
+
+				<div class="container text-center">
+					<div class="span6">
+						<p id="info">This is a simple one-page web-app that 
+						allows users to check if a given airport is delayed or not.
+						It also provides some useful, miscellaneous information such
+						as weather and temperature. It uses the FAA's public flight
+						status API found  
+						<a href="http://services.faa.gov/" id="faa-link">here</a> </p>
+						<p>Check out the repo for this 
+						<a href="https://github.com/Manan-Singh">here</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="delay-view" ng-controller="ctrl2">
+		<h2>Major Airports</h2>
+		<p>This is a list of some major airports that may come in handy. Instead of having to search
+		for all of the airports manually, this small list has been created to show a select few
+		important airports' conditions. If you would like the list to be updated with newer values
+		then simply refresh the page. Note that since not all airports with
+		delays will appear here, you can use the form below to check on a specific airport and its 
+		conditions.
+		</p>
+		<div id="delayed" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				
+				<div class="item active">
+					<div class="ap-min-display">
+						<h2>JFK</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>ATL</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>LAX</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>ORD</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>DFW</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>DEN</h2>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="ap-min-display">
+						<h2>SFO</h2>
+					</div>
+				</div>
+
+			</div>
+
+			<a class="left carousel-control" href="#delayed" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			</a>
+		   <a class="right carousel-control" href="#delayed" role="button" data-slide="next">
+		     	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    	<span class="sr-only">Next</span>
+		   </a>
+
+		</div>
+	</div>
+
+	<div id="content" class="container-flow" ng-controller="ctrl">
+		<div class="row-fluid">
+			<div class="col-md-4">
+				<div id="form-area">
+					
+				<form>
+					<div class="text-center">
+						<h2>Search for a specific airport</h2>
+						<p>If you would like to know about a specific airport's condition,
+						then you can use the text-field to search for it. Simply look up
+						the airport's three letter IATA code, and type it in. Then press 
+						the button and viola!</p>
+					</div>
+
+					<div class="form-group">
+						<label for="airport-code-input">Search via IATA code:</label>
+						<div class="input-group">
+							<input type="" class="form-control" id="airport-code-input" 
+							placeholder="Example: JFK">
+							<span class="input-group-btn">
+								<button class="btn btn-default" ng-click="submitIATA()">Find</button>
+							</span>
+						</div>
+					</div>
+
+				</form>
+
+				</div>
+			</div>
+
+			<div class="col-md-8" id="airport-display">
+				<div id="airport-info">
+					<div class="jumbotron">
+						<div class="container text-center" id="airport-info-view">
+							<h2>You haven't searched for any airports</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- JQUERY  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+	<!-- ANGULAR.JS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/core.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>
